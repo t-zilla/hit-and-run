@@ -1,0 +1,123 @@
+/*
+	
+	Description:
+	Defines meta-data and parameters
+	
+*/
+
+#include "scripts\TOUR_FieldRadio\TOUR_FieldRadio.hpp"
+
+// Prevent players from respawning
+respawnDelay = 86400;
+
+// Set mission name displayed on loading screen
+onLoadName = "16 [MYT] Hit and Run";
+
+// Define parameters (values can be set in lobby)
+class Params
+{
+	class MYT_par_time
+	{
+		title = "Time:";
+		values[] = {1, 2, 3, 4, 5, 6};
+		default = 4;
+		texts[] = {"Dawn", "Sunrise", "Early Afternoon", "Late Afternoon (Default)", "Sunset", "Dusk"};
+	};
+	
+	class MYT_par_timing
+	{
+		title = "Enemy will move out in:";
+		values[] = {5, 10, 15, 20};
+		default = 15;
+		texts[] = {"5 mins", "10 mins", "15 mins (Default)", "20 mins"};
+	};
+	
+	class MYT_par_view_distance
+	{
+		title = "View distance:";
+		values[] = {1400, 1600, 1800, 2000, 2200};
+		default = 1800;
+		texts[] = {"1400m", "1600m", "1800m (Default)", "2000m", "2200m"};
+	};
+	
+	class MYT_par_ai_skill
+	{
+		title = "AI skill:";
+		values[] = {10, 20, 30, 40, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100};
+		default = 75;
+		texts[] = {"0.10", "0.20", "0.30", "0.40", "0.50", "0.55", "0.60", "0.65", "0.70", "0.75 (Default)", "0.80", "0.85", "0.90", "0.95", "1.00"};
+	};
+	
+	class MYT_par_ai_accuracy
+	{
+		title = "AI accuracy sub-skill:";
+		values[] = {5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 70, 80, 90, 100};
+		default = 30;
+		texts[] = {"0.05", "0.10", "0.15", "0.20", "0.25", "0.30 (Default)", "0.35", "0.40", "0.45", "0.50", "0.55", "0.60", "0.70", "0.80", "0.90", "1.00"};
+	};
+	
+};
+
+// Define debriefing classes for all endings of the scenario
+class CfgDebriefing
+{
+
+	class VictoryEnding
+	{
+		title = "Victory";
+		subtitle = "Operation was successful";
+		description = "The enemy suffered significant damage.";
+		pictureBackground = "";
+		picture = "flag_FIA";
+	};
+	
+	class MinorVictoryEnding
+	{
+		title = "Minor Victory";
+		subtitle = "Bloody ending";
+		description = "Although enemy suffered significant damage, so did you.";
+		pictureBackground = "";
+		picture = "flag_FIA";
+	};
+	
+	class MinorDefeatEnding
+	{
+		title = "Minor Defeat";
+		subtitle = "Early withdrawal";
+		description = "You missed your opportunity to ambush the enemy and withdrew early.";
+		pictureBackground = "";
+		picture = "flag_AAF";
+	};
+	
+	class DefeatEnding
+	{
+		title = "Defeat";
+		subtitle = "Combat ineffective";
+		description = "You were rendered combat ineffective and didn't cause enough damage to the enemy.";
+		pictureBackground = "";
+		picture = "flag_AAF";
+	};
+	
+	class DeathEnding
+	{
+		title = "Crushing Defeat";
+		subtitle = "That was to be avoided";
+		description = "All FIA fighters died.";
+		pictureBackground = "";
+		picture = "KIA";
+	};
+	
+};
+
+// Enable remote execution
+class CfgRemoteExec
+{
+	class Functions
+	{
+		mode = 2;
+	};
+	class Commands
+	{
+		mode = 2;
+	};
+};
